@@ -12,7 +12,7 @@ signal.signal(signal.SIGINT, signal_handler)
 
 return_val = -2 #Process return -2 on exit
 
-while return_val == -2:
+while return_val == -2 or return_val == 0:
     process = subprocess.Popen("./ethminer -G -P stratum1+ssl://0x3c8FF37553E1b925CDec19DF035969e94e9A0d9c@eu1.ethermine.org:5555 --noeval --report-hashrate --response-timeout 999 --work-timeout 999",stdout=subprocess.PIPE,shell=True)
     stdout = process.communicate()[0]
 
